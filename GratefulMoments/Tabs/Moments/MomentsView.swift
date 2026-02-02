@@ -1,6 +1,8 @@
 import SwiftData
 import SwiftUI
 
+// TODO: SECTION 3 - use a custom layout view
+
 struct MomentsView: View {
     @State private var showCreateMoment = false
     @Query(sort: \Moment.timestamp)
