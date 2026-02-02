@@ -1,5 +1,6 @@
 import PhotosUI
 import SwiftUI
+import UIKit
 
 struct MomentEntryView: View {
     @State private var title = ""
@@ -23,11 +24,20 @@ struct MomentEntryView: View {
         // Create a stateVariable to store the photoItem
         PhotosPicker(selection: $newImage) {
             Group {
-                Image(systemName: "photo.badge.plus.fill")
-                    .font(.largeTitle)
-                    .frame(height: 250)
-                    .frame(maxWidth: .infinity)
-                    .background(Color(white: 0.4, opacity: 0.32))
+                // we also need to convert the image data after task
+                // to an image, thus the if statement
+                // Imported uikit to use UIImage
+                if let imageData, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    Image(systemName: "photo.badge.plus.fill")
+                        .font(.largeTitle)
+                        .frame(height: 250)
+                        .frame(maxWidth: .infinity)
+                        .background(Color(white: 0.4, opacity: 0.32))
+                }
             }
             .clipShape(RoundedRectangle(cornerRadius: 16))
         }
