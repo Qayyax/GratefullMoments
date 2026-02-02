@@ -2,6 +2,7 @@ import Foundation
 import SwiftData
 import UIKit
 
+@Model
 class Moment {
     var title: String
     var note: String
