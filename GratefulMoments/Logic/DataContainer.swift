@@ -1,6 +1,7 @@
 import SwiftData
 import SwiftUI
 
+@Observable
 @MainActor
 class DataContainer {
     let modelContainer: ModelContainer
@@ -38,6 +39,7 @@ class DataContainer {
 private let sampleContainer = DataContainer(includeSampleMoments: true)
 extension View {
     func sampleDataContainer() -> some View {
-        modelContainer(sampleContainer.modelContainer)
+        environment(sampleContainer)
+            .modelContainer(sampleContainer.modelContainer)
     }
 }

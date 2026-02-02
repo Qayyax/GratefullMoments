@@ -1,17 +1,14 @@
-//
-//  GratefulMomentsApp.swift
-//  GratefulMoments
-//
-//  Created by Abdul-Qayyum Olatunji on 2026-02-01.
-//
-
+import SwiftData
 import SwiftUI
 
 @main
 struct GratefulMomentsApp: App {
+    let dataContainer = DataContainer()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(dataContainer)
         }
+        .modelContainer(dataContainer.modelContainer)
     }
 }
