@@ -1,10 +1,4 @@
-//
-//  MomentEntryView.swift
-//  GratefulMoments
-//
-//  Created by Abdul-Qayyum Olatunji on 2026-02-01.
-//
-
+import PhotosUI
 import SwiftUI
 
 struct MomentEntryView: View {
@@ -20,6 +14,15 @@ struct MomentEntryView: View {
         }
     }
 
+    private var photoPicker: some View {
+        Image(systemName: "photo.badge.plus.fill")
+            .font(.largeTitle)
+            .frame(height: 250)
+            .frame(maxWidth: .infinity)
+            .background(Color(white: 0.4, opacity: 0.32))
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+
     var contentStack: some View {
         VStack(alignment: .leading) {
             TextField(text: $title) {
@@ -30,9 +33,11 @@ struct MomentEntryView: View {
 
             Divider()
 
-            TextField("Log your small wins", text: $note)
+            TextField("Log your small wins", text: $note, axis: .vertical)
                 .multilineTextAlignment(.leading)
                 .lineLimit(5 ... Int.max)
+
+            photoPicker
         }
         .padding()
     }
