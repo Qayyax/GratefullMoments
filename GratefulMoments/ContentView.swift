@@ -2,8 +2,6 @@
 //  ContentView.swift
 //  GratefulMoments
 //
-//  Created by Abdul-Qayyum Olatunji on 2026-02-01.
-//
 
 import SwiftUI
 
@@ -14,6 +12,10 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
+          Text("This is lagging")
+          Text("I don't think it is lagging anymore")
+            .fontWeight(.bold)
+          // I would continue with the tutorial from my ipad`
         }
         .padding()
     }
