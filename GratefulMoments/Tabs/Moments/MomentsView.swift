@@ -12,6 +12,15 @@ struct MomentsView: View {
                 pathItems
                     .frame(maxWidth: .infinity)
             }
+            .overlay {
+                if moments.isEmpty {
+                    ContentUnavailableView {
+                        Label("No moments yet!", systemImage: "exclamationmark.circle.fill")
+                    } description: {
+                        Text("Post a note or photo to start filling the space with gratitude")
+                    }
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
@@ -38,4 +47,9 @@ struct MomentsView: View {
 #Preview {
     MomentsView()
         .sampleDataContainer()
+}
+
+#Preview("No moments") {
+    MomentsView()
+        .modelContainer(for: [Moment.self])
 }
